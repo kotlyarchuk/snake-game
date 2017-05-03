@@ -1,3 +1,8 @@
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
   text-align: center;
@@ -16,14 +21,22 @@ div {
   padding: 0;
 }
 
-h1 {
+.title, .score-title {
   color: #ccc;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
+
 .field-block {
-  background: #ccc;
+  background: rgba(0,0,0,0.5);
   width: 20px;
   height: 20px;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 15px auto;
 }
 
 .container {
@@ -31,8 +44,42 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   max-width: 400px;
+  z-index: 1;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.9);
+}
+
+.gameover {
+  z-index: 50;
+  position: absolute;
+  top: 100px;
+  left: 140px;
+  color: red;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.newgame {
+  color: #ccc;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.newgame:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.3);
 }
 
 .toggled {
-  background: red;
+  background-image: url("../img/circle.png");
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.snake {
+  background-image: url("../img/snake.png");
+  background-size: cover;
+}
+
+.food {
+  background-image: url("../img/food.png");
+  background-size: cover;
 }

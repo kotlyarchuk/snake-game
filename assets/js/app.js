@@ -67,9 +67,12 @@ $(document).ready(function(){
 // ********************************
 
 function createFood(){
-  foodX = random(19);
-  foodY = random(19);
-  $("div[x="+foodX+"][y="+foodY+"]").addClass("food");
+  food = [random(19), random(19)];
+  if ( !snake.coords.includes(food) ){
+    $("div[x="+food[0]+"][y="+food[1]+"]").addClass("food");
+  } else {
+    createFood();
+  }
 }
 
 function random(num){
@@ -160,7 +163,7 @@ function renderSnake(){
   }
 
   //food interaction
-  if(snake.position[0] === foodX && snake.position[1] === foodY){
+  if(snake.position[0] === food[0] && snake.position[1] === food[1]){
     $(".container>div").removeClass("food");
     snake.length +=1 ;
     scoreCount += 1;
